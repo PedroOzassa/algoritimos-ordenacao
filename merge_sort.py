@@ -13,17 +13,17 @@ def juntar(esquerda, direita, trocas):
         else:
             resultado.append(direita[j])
             j += 1
-        trocas += 1
+        trocas[0] += 1
 
     while i < len(esquerda):
         resultado.append(esquerda[i])
         i += 1
-        trocas += 1
+        trocas[0] += 1
 
     while j < len(direita):
         resultado.append(direita[j])
         j += 1
-        trocas += 1
+        trocas[0] += 1
 
     return resultado
 
@@ -40,9 +40,9 @@ def ordenar(lista, trocas):
 
 def merge_sort(vetor):
     dados = list(vetor)
-    trocas = 0
+    trocas = [0]
 
     inicio = perf_counter()
     dados = ordenar(dados, trocas)
     tempo_execucao = perf_counter() - inicio
-    return tempo_execucao, trocas
+    return tempo_execucao, trocas[0]
